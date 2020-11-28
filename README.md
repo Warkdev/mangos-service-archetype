@@ -12,10 +12,10 @@ git clone https://github.com/Warkdev/mangos-service-archetype.git/
 cd mangos-service-archetype
 mvn install
 
-# Then, create a new project
+# Then, create a new project, here item-service
 cd..
-mvn archetype:generate -DarchetypeGroupId=eu.getmangos -DarchetypeArtifactId=mangos-service-template-archetype -DarchetypeVersion=1.0 -DgroupId=eu.getmangos -DartifactId=my-mangos-service -DmainEntity=Test
+mvn archetype:generate -B "-DarchetypeGroupId=eu.getmangos" "-DarchetypeArtifactId=mangos-service-template-archetype" "-DarchetypeVersion=1.0" "-DgroupId=eu.getmangos" "-DartifactId=item-service" "-DmainEntity=Item"
 
-# This will create a new folder my-mangos-service and generate the basic skeleton around the entity 'Test'
+# This will create a new folder item-service and generate the basic skeleton around the entity 'Item'
 
 ```
