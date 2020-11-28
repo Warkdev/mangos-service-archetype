@@ -54,6 +54,9 @@
         <include>.gitignore</include>
         <include>LICENSE</include>
         <include>README.md</include>
+        <include>.travis.yml</include>
+        <include>configure_app.sh</include>
+        <include>Dockerfile</include>
       </includes>
     </fileSet>
   </fileSets>
