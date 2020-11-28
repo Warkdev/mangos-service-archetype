@@ -85,7 +85,7 @@ public class ${mainEntity}Controller {
         logger.debug("delete() entry.");
 
         ${mainEntity} ${mainEntity.toLowerCase()} = find(id);
-        if(${mainEntity.toLowerCase} == null) {
+        if(${mainEntity.toLowerCase()} == null) {
             logger.debug("delete() exit.");
             throw new DAOException("The ${mainEntity.toLowerCase()} doesn't exist");
         }
