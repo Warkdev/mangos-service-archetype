@@ -2,7 +2,12 @@
 <archetype-descriptor xsi:schemaLocation="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 http://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd" name="mangos-service-template"
     xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <fileSets>
+    <requiredProperties>
+        <requiredProperty key="mainEntity">
+            <defaultValue>Template</defaultValue>
+        </requiredProperty>
+    </requiredProperties>
+    <fileSets>
     <fileSet filtered="true" packaged="true" encoding="UTF-8">
       <directory>src/main/java</directory>
       <includes>
@@ -35,20 +40,20 @@
         <include>**/*.xml</include>
       </includes>
     </fileSet>
-    <fileSet encoding="UTF-8">
+    <fileSet filtered="true" encoding="UTF-8">
       <directory>scripts/database</directory>
       <includes>
         <include>**/*.sql</include>
       </includes>
     </fileSet>
-    <fileSet encoding="UTF-8">
+    <fileSet filtered="true" encoding="UTF-8">
       <directory>scripts</directory>
       <includes>
         <include>**/*.</include>
         <include>**/*.sh</include>
       </includes>
     </fileSet>
-    <fileSet encoding="UTF-8">
+    <fileSet filtered="true" encoding="UTF-8">
       <directory></directory>
       <includes>
         <include>.gitignore</include>

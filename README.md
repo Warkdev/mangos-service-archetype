@@ -14,7 +14,7 @@ mvn install
 
 # Then, create a new project, here item-service
 cd..
-mvn archetype:generate -B "-DarchetypeGroupId=eu.getmangos" "-DarchetypeArtifactId=mangos-service-template-archetype" "-DarchetypeVersion=1.0" "-DgroupId=eu.getmangos" "-DartifactId=item-service" "-DmainEntity=Item"
+mvn archetype:generate -B "-DarchetypeGroupId=eu.getmangos" "-DarchetypeArtifactId=mangos-service-template-archetype" "-DarchetypeVersion=1.0" "-DgroupId=eu.getmangos" "-DartifactId=item-service" "-Dversion=1.0" "-DmainEntity=Item"
 
 # This will create a new folder item-service and generate the basic skeleton around the entity 'Item'
 
