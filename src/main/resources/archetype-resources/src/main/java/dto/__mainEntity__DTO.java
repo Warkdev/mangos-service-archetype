@@ -14,10 +14,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter @Setter @NoArgsConstructor @AllArgsConstructor
-public class __mainEntity__DTO implements Serializable{
+public class ${mainEntity}DTO implements Serializable{
     private static final long serialVersionUID = 1L;
 
-    @Schema(description = "A unique identifier of the ${symbol_dollar}{mainEntity}")
+    @Schema(description = "A unique identifier of the ${mainEntity}")
     private int id;
 
 }

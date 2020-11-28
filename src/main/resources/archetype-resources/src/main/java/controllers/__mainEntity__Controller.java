@@ -18,20 +18,33 @@ import javax.transaction.Transactional;
 
 import org.slf4j.Logger;
 
-import ${package}.entities.${symbol_dollar}{mainEntity};
-import ${package}.mapper.${symbol_dollar}{mainEntity}Mapper;
-import io.reactivex.rxjava3.core.BackpressureStrategy;
-import io.reactivex.rxjava3.core.Flowable;
-import io.reactivex.rxjava3.core.FlowableEmitter;
+import ${package}.entities.${mainEntity};
+import ${package}.mapper.${mainEntity}Mapper;
 
 @ApplicationScoped
-public class ${symbol_dollar}{mainEntity}Controller {
+public class ${mainEntity}Controller {
     @Inject private Logger logger;
 
-    @PersistenceContext(name = "AUTH_PU")
-    private EntityManager em;
+    #if($persistenceUnits.contains("AUTH"))
+@PersistenceContext(unitName = "AUTH_PU")
+    private EntityManager emAuth;
+    #end
 
-    @Inject private ${symbol_dollar}{mainEntity}Mapper mapper;
+    #if($persistenceUnits.contains("CHAR"))
+@PersistenceContext(unitName = "CHAR_PU")
+    private EntityManager emChar;
+    #end
 
-    
+    #if($persistenceUnits.contains("WORLD"))
+@PersistenceContext(unitName = "WORLD_PU")
+    private EntityManager emWorld;
+    #end
+
+    #if($persistenceUnits.contains("DBC"))
+@PersistenceContext(unitName = "DBC_PU")
+    private EntityManager emDbc;
+    #end
+
+    @Inject private ${mainEntity}Mapper mapper;
+
     }

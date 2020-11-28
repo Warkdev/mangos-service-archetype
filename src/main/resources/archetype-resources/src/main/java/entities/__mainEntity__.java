@@ -26,97 +26,22 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(
-    name="${mainEntity}",
-    uniqueConstraints = {
-        @UniqueConstraint(name="username", columnNames = {"username"}
-        )
-    }
+    name="${mainEntity.toLowerCase()}"
 )
 
 @NamedQueries({
-    @NamedQuery(name = "${symbol_dollar}{mainEntity}.findAll", query = "SELECT a FROM ${symbol_dollar}{mainEntity} a"),
-    @NamedQuery(name = "${symbol_dollar}{mainEntity}.findById", query = "SELECT a FROM ${symbol_dollar}{mainEntity} a where a.id = :id"),
+    @NamedQuery(name = "${mainEntity}.findAll", query = "SELECT a FROM ${mainEntity} ${mainEntity.toLowerCase()[0]}"),
+    @NamedQuery(name = "${mainEntity}.findById", query = "SELECT a FROM ${mainEntity} ${mainEntity.toLowerCase()[0]} where ${mainEntity.toLowerCase()[0]}.id = :id"),
 })
 /**
- * This class represent an entity ${symbol_dollar}{mainEntity} from the Realm Database.
+ * This class represent an entity ${mainEntity} from the Realm Database.
  */
 @Data @AllArgsConstructor @NoArgsConstructor
-public class ${symbol_dollar}{mainEntity} implements Serializable{
+public class ${mainEntity} implements Serializable{
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-
-    @Column(name="username", length=32)
-    @NotNull
-    private String username;
-
-    @Column(name="sha_pass_hash", length=40)
-    @NotNull
-    private String shaPassHash;
-
-    @Column(name="gmlevel")
-    @NotNull
-    private short gmLevel;
-
-    @Column(name="sessionkey")
-    private String sessionKey;
-
-    @Column(name="v")
-    private String v;
-
-    @Column(name="s")
-    private String s;
-
-    @Column(name="email")
-    private String email;
-
-    @Column(name="joindate")
-    @Temporal(TemporalType.TIMESTAMP)
-    @NotNull
-    private Date joinDate;
-
-    @Column(name="last_ip", length = 30)
-    @NotNull
-    private String lastIP;
-
-    @Column(name="failed_logins")
-    @NotNull
-    private int failedLogins;
-
-    @Column(name="locked")
-    @Basic(optional = false)
-    @NotNull
-    private boolean locked;
-
-    @Column(name="last_login")
-    @Temporal(TemporalType.TIMESTAMP)
-    @NotNull
-    private Date lastLogin;
-
-    @Column(name="active_realm_id")
-    @NotNull
-    private int activeRealmId;
-
-    @Column(name="expansion")
-    @NotNull
-    private short expansion;
-
-    @Column(name="mutetime")
-    @NotNull
-    private Long mutetime;
-
-    @Column(name="locale")
-    @NotNull
-    private short locale;
-
-    @Column(name="os", length = 3)
-    private String os;
-
-    @Column(name="playerBot")
-    @Basic(optional = false)
-    @NotNull
-    private boolean playerBot;
 }

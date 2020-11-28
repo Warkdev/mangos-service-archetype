@@ -21,7 +21,7 @@ public class ServiceReadinessCheck implements HealthCheck {
     private static final String readinessCheck = ${mainEntity}Resource.class.getSimpleName() + " Readiness Check";
 
     @Inject
-    @ConfigProperty(name = "eu_getmangos_${mainEntity}_service_inMaintenance")
+    @ConfigProperty(name = "eu_getmangos_${mainEntity.toLowerCase()}_service_inMaintenance")
     Provider<String> inMaintenance;
 
     @Override

@@ -41,7 +41,7 @@
         <liberty.var.default.http.port>8081</liberty.var.default.http.port>
         <liberty.var.default.https.port>8082</liberty.var.default.https.port>
         <!--<liberty.var.app.context.root>api</liberty.var.app.context.root>-->
-        <liberty.var.mariadb.lib>${mariadb.path}/${version.mariadb}/mariadb-java-client-${version.mariadb}.jar</liberty.var.mariadb.lib>
+        <liberty.var.mariadb.lib>${mariadb.path}/${mariadb.version}/mariadb-java-client-${mariadb.version}.jar</liberty.var.mariadb.lib>
     </properties>
 
     <developers>

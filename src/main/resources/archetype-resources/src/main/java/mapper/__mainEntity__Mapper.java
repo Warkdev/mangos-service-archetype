@@ -8,15 +8,15 @@ import java.util.Date;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import ${package}.entities.${symbol_dollar}{mainEntity};
-import ${package}.dto.${symbol_dollar}{mainEntity}DTO;
+import ${package}.entities.${mainEntity};
+import ${package}.dto.${mainEntity}DTO;
 
 @Mapper(componentModel = "cdi")
-public interface ${symbol_dollar}{mainEntity}}Mapper {
+public interface ${mainEntity}}Mapper {
 
-    ${symbol_dollar}{mainEntity}DTO map(${symbol_dollar}{mainEntity} ${symbol_dollar}{mainEntity});
+    ${mainEntity}DTO map(${mainEntity} entity);
 
-    ${symbol_dollar}{mainEntity} map(${symbol_dollar}{mainEntity}DTO dto);
+    ${mainEntity} map(${mainEntity}DTO dto);
 
     default Date map(Long value) {
         return new Date(value);
