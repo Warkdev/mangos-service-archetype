@@ -5,6 +5,10 @@
     <groupId>${groupId}</groupId>
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
+    <packaging>war</packaging>
+
+    <name>${artifactId}</name>
+    <url>https://github.com/Warkdev/${artifactId}</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
