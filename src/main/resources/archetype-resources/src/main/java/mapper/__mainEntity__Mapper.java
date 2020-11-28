@@ -12,7 +12,7 @@ import ${package}.entities.${mainEntity};
 import ${package}.dto.${mainEntity}DTO;
 
 @Mapper(componentModel = "cdi")
-public interface ${mainEntity}}Mapper {
+public interface ${mainEntity}Mapper {
 
     ${mainEntity}DTO map(${mainEntity} entity);
 

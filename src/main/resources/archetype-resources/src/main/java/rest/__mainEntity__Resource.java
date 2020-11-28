@@ -63,7 +63,7 @@ public interface ${mainEntity}Resource {
             @APIResponse(responseCode = "500", description = "An unexpected even occured")
         }
     )
-    @Tag(name = "${mainEntity}")
+    @Tag(name = "${mainEntity.toLowerCase()}")
     public Response findAll${mainEntity}s();
 
     @POST
@@ -81,7 +81,7 @@ public interface ${mainEntity}Resource {
             @APIResponse(responseCode = "500", description = "An unexpected even occured")
         }
     )
-    @Tag(name = "${mainEntity}")
+    @Tag(name = "${mainEntity.toLowerCase()}")
     public Response create${mainEntity}(${mainEntity}DTO entity);
 
     @PUT
@@ -101,7 +101,7 @@ public interface ${mainEntity}Resource {
             @APIResponse(responseCode = "500", description = "An unexpected even occured")
         }
     )
-    @Tag(name = "${mainEntity}")
+    @Tag(name = "${mainEntity.toLowerCase()}")
     public Response edit${mainEntity}(@PathParam("id") Integer id, ${mainEntity}DTO entity);
 
     @DELETE
@@ -121,7 +121,7 @@ public interface ${mainEntity}Resource {
             @APIResponse(responseCode = "500", description = "An unexpected even occured")
         }
     )
-    @Tag(name = "${symbol_dollar}{mainEntity}")
-    public Response delete${symbol_dollar}{mainEntity}(@PathParam("id") Integer id);
+    @Tag(name = "${mainEntity.toLowerCase()}")
+    public Response delete${mainEntity}(@PathParam("id") Integer id);
 
 }

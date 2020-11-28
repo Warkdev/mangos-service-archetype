@@ -30,11 +30,11 @@ import lombok.NoArgsConstructor;
 )
 
 @NamedQueries({
-    @NamedQuery(name = "${mainEntity}.findAll", query = "SELECT a FROM ${mainEntity} ${mainEntity.toLowerCase()[0]}"),
-    @NamedQuery(name = "${mainEntity}.findById", query = "SELECT a FROM ${mainEntity} ${mainEntity.toLowerCase()[0]} where ${mainEntity.toLowerCase()[0]}.id = :id"),
+    @NamedQuery(name = "${mainEntity}.findAll", query = "SELECT a FROM ${mainEntity} ${mainEntity.toLowerCase().charAt(0)}"),
+    @NamedQuery(name = "${mainEntity}.findById", query = "SELECT a FROM ${mainEntity} ${mainEntity.toLowerCase().charAt(0)} where ${mainEntity.toLowerCase().charAt(0)}.id = :id"),
 })
 /**
- * This class represent an entity ${mainEntity} from the Realm Database.
+ * This class represent an entity ${mainEntity}.
  */
 @Data @AllArgsConstructor @NoArgsConstructor
 public class ${mainEntity} implements Serializable{

@@ -19,8 +19,6 @@ import ${package}.controllers.DAOException;
 import ${package}.dto.${mainEntity}DTO;
 import ${package}.dto.MessageDTO;
 import ${package}.entities.${mainEntity};
-import ${package}.entities.${mainEntity};
-import ${package}.entities.${mainEntity};
 import ${package}.mapper.${mainEntity}Mapper;
 import ${package}.rest.${mainEntity}Resource;
 
