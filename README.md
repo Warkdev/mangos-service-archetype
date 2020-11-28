@@ -1,14 +1,9 @@
-# instance-service
+# ${artifactId}-service [![Build status](https://travis-ci.com/Warkdev/${artifactId}-service.svg?branch=main)][1] [![Coverage Status](https://coveralls.io/repos/github/Warkdev/${artifactId}-service/badge.svg?branch=main)][4] [![Codebeat badge](https://codebeat.co/badges/5ccfd060-8d57-4a51-9c6b-2688482f857e)][5] [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+This project is educational, this is a Rest API based on [Mangos Authentication Database](https://github.com/mangoszero/database), it provides access to the database through web calls and allows to manage Mangos ${artifactId}s:
+- ${artifactId}
 
-This project is educational, this is a Rest API based on [Mangos Character Database](https://github.com/mangoszero/database), it provides access to the database through web calls and allows to manage Mangos Instances for a given realm:
-- Instance and its data
-- Group links to instances
-- Characte links to instances
-- Creature Respawns
-- Gameobject Respawns
-- Corpse
+See the [Javadoc][2] for more information. Don't hesitate to raise an issue in the [tracker][3] if you notice any suspect behavior.
 
 # OpenAPI
 
@@ -28,10 +23,10 @@ This software is tested against [openliberty 20.0.0.11](https://openliberty.io/)
 
 # Configuring your webserver
 
-Start by making available, in your lib directory, your database JDBC driver. Once done, here's an example for an openliberty server.xml configuration which will setup this application on `/` on port 9081. It's also assuming that you're using MariaDB and that it's provided in the shared resources folder of the webserver.
+Start by making available, in your lib directory, your database JDBC driver. Once done, here's an example for an openliberty server.xml configuration which will setup this application on `/` on port 8081. It's also assuming that you're using MariaDB and that it's provided in the shared resources folder of the webserver.
 
 ```xml
-<server description="instanceService">
+<server description="${artifactId}Service">
     <featureManager>
         <feature>jaxrs-2.1</feature>
         <feature>jsonp-1.1</feature>
@@ -48,11 +43,11 @@ Start by making available, in your lib directory, your database JDBC driver. Onc
 
     <httpEndpoint httpPort="${default.http.port}" id="defaultHttpEndpoint" hosts="*" />
 
-    <jpa defaultJtaDataSourceJndiName="jdbc/CharDBDS" entityManagerPoolCapacity="5"/>
+    <jpa defaultJtaDataSourceJndiName="jdbc/AuthDBDS" entityManagerPoolCapacity="5"/>
     <library id="MARIADBLIB" name="Library for Maria DB">
         <file name="${mariadb.lib}"/>
     </library>
-    <dataSource id="CharDBDS" jndiName="jdbc/CharDBDS">
+    <dataSource id="AuthDBDS" jndiName="jdbc/AuthDBDS">
     	<jdbcDriver javax.sql.DataSource="org.mariadb.jdbc.Driver" libraryRef="MARIADBLIB"/>
     	<properties URL="jdbc:mariadb://<db_url>:<db_port>/<db_name>" databaseName="<db_name>" password="<db_password>" portNumber="<db_port>" serverName="<db_host>" user="<db_user>"/>
     </dataSource>
@@ -68,3 +63,9 @@ Voilà ! You're all set, now you can happily use this API to interact with the d
 # Docker
 
 You can also user the provided Dockerfile as example to create your own applicative image containing this service !
+
+[1]: https://travis-ci.com/Warkdev/${artifactId}-service "Travis CI · ${artifactId} Service build status"
+[2]: https://warkdev.github.io/${artifactId}-service/apidocs/ "${artifactId} Service javadoc"
+[3]: https://github.com/Warkdev/${artifactId}-service/issues/ "${artifactId} Service Issues"
+[4]: https://coveralls.io/github/Warkdev/${artifactId}-service?branch=main "${artifactId} Service Coverage status"
+[5]: https://codebeat.co/projects/github-com-warkdev-${artifactId}-service-main "${artifactId} Service Codebeat status"

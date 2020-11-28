@@ -1,0 +1,42 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<server description="Test-service">
+    <featureManager>
+        <feature>jsonb-${version}</feature>
+        <feature>jaxrs-2.1</feature>
+        <feature>jsonp-1.1</feature>
+        <feature>cdi-2.0</feature>
+        <feature>jpa-2.2</feature>
+        <feature>mpConfig-1.4</feature>
+        <feature>mpOpenAPI-1.1</feature>
+        <feature>mpMetrics-2.3</feature>
+        <feature>mpHealth-2.2</feature>
+    </featureManager>
+
+    <variable name="default.http.port" defaultValue="8081"/>
+    <variable name="default.https.port" defaultValue="8082"/>
+
+    <variable name="version.mariadb" defaultValue="2.7.0"/>
+    <variable name="mariadb.lib" defaultValue="${symbol_dollar}{shared.resource.dir}/mariadb-java-client-${symbol_dollar}{version.mariadb}.jar"/>
+
+    <webApplication location="Test-service.war" contextRoot="/" />
+    <mpMetrics authentication="false"/>
+
+    <httpEndpoint httpPort="${symbol_dollar}{default.http.port}" httpsPort="${symbol_dollar}{default.https.port}" id="defaultHttpEndpoint" hosts="*" />
+
+    <jpa defaultJtaDataSourceJndiName="jdbc/AuthDBDS" entityManagerPoolCapacity="5"/>
+    <library id="MARIADBLIB" name="Library for Maria DB">
+        <file name="${symbol_dollar}{mariadb.lib}"/>
+    </library>
+    <dataSource id="AuthDBDS" jndiName="jdbc/AuthDBDS">
+    	<jdbcDriver javax.sql.DataSource="org.mariadb.jdbc.Driver" libraryRef="MARIADBLIB"/>
+    	<properties URL="jdbc:mariadb://localhost:3306/auth" databaseName="auth" password="" portNumber="3306" serverName="localhost" user="root"/>
+    </dataSource>
+    <webAppSecurity singleSignonEnabled="false"/>
+    <basicRegistry id="basic" realm="dummyRealm">
+    	<user name="admin" password="{xor}PjsyNjE="/>
+    </basicRegistry>
+
+    <variable name="eu_getmangos_Test_service_inMaintenance" value="false"/>
+</server>
